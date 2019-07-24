@@ -1,0 +1,25 @@
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+
+	<h1>New Book</h1>
+
+<%= form_for(bookn) do |f| %>
+
+	<% if bookn.errors.any? %>
+	        <%= bookn.errors.count %> errors prohibited this obj from being saved:
+
+	        <% bookn.errors.full_messages.each do |message| %>
+	            <%= message %>
+	<% end %>
+	<% end %>
+<h4>Title</h4>
+<%= f.text_field :title, class: "form-control" %>
+<h4>Opinion</h4>
+<%= f.text_area :body, class: "form-control" %>
+<%= f.submit "Create Book", class: "btn btn-primary form-control" %>
+
+<% end %>
+</div>
+</div>
+</div>

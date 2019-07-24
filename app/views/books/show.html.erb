@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-lg-3">
+<%= render 'users/list', user: @user %>
+<%= render 'books/list', bookn: @bookn %>
+</div>
+
+<div class="col-lg-9">
+			<h1>Book detail</h1>
+<table class="table">
+
+<tbody>
+		<tr>
+			<td><%= attachment_image_tag @book.user, :profile_image, :fill, 35,35 %>
+				<p><%= link_to user_path(@book.user) do %>
+						<%= @book.user.name %>
+						<% end %>
+				</p>
+			</td>
+
+			<td><%= link_to book_path(@book) do %>
+				<%= @book.title %>
+				<% end %>
+			</td>
+				<td><%= @book.body %></td>
+
+
+			<% if @book.user == current_user %>
+			<td><%= link_to "Edit", edit_book_path, class: "btn-sm btn-success" %></td>
+			<td><%= link_to "Destroy", book_path, class: "btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+			<% end %>
+		</tr>
+</tbody>
+
+</table>
+</div>
+</div>
